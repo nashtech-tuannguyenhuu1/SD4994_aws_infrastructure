@@ -13,9 +13,19 @@ variable "cidr_public_subnet" {
   description = "Public Subnet CIDR values for Jenkins and docker"
 }
 
-variable "eu_availability_zone" {
+variable "cidr_public_subnet_for_eks" {
+  type        = list(string)
+  description = "Public Subnet CIDR values for EKS"
+}
+
+variable "ap_availability_zone" {
   type        = list(string)
   description = "Availability Zones"
+}
+
+variable "ap_availability_zone_eks" {
+  type        = list(string)
+  description = "Availability Zones for EKS"
 }
 
 variable "public_key" {
