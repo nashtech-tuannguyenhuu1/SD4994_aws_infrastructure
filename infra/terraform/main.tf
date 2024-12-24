@@ -17,7 +17,7 @@ module "security_group" {
 module "jenkins" {
   source                    = "./modules/jenkins"
   ami_id                    = var.ec2_ami_id
-  instance_type             = "t2.micro"
+  instance_type             = "t2.medium"
   tag_name                  = "Jenkins:Ubuntu Linux EC2"
   public_key                = var.public_key
   subnet_id                 = tolist(module.networking.dev_proj_msa_public_subnets)[0]
@@ -52,6 +52,6 @@ module "eks" {
   scaling_desired_size    = 2
   scaling_max_size        = 3
   scaling_min_size        = 1
-  instance_types          = ["t2.micro"]
+  instance_types          = ["t2.medium"]
   key_pair                = "jenkins_msa"
 }

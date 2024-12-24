@@ -32,6 +32,12 @@ resource "aws_instance" "jenkins_ec2_instance_ip" {
 
   user_data = var.user_data_install_jenkins
 
+  root_block_device {
+    volume_size = 50
+    volume_type = "gp3"
+    delete_on_termination = true
+  }
+
   metadata_options {
     http_endpoint = "enabled"  # Enable the IMDSv2 endpoint
     http_tokens   = "required" # Require the use of IMDSv2 tokens
